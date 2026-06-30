@@ -1,0 +1,17 @@
+{{- if lt hugo.Version "0.146.0" -}}
+{{- errorf "Mingger requires Hugo v0.146.0+" -}}
+{{- end -}}
+<!DOCTYPE html>
+<html lang="{{ site.Language | default "zh" }}">
+<head>
+  {{- partial "head.html" . -}}
+</head>
+<body>
+  {{- partial "dove.html" . -}}
+  {{- partial "header.html" . -}}
+  <main class="main">
+    {{- block "main" . }}{{ end -}}
+  </main>
+  {{- partial "footer.html" . -}}
+</body>
+</html>

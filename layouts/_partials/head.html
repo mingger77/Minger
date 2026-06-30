@@ -1,0 +1,14 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+
+{{ with site.Params.favicon -}}
+<link rel="icon" href="{{ . | relURL }}">
+{{- end }}
+
+{{ $css := resources.Get "css/main.css" | resources.Fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+
+{{ $js := resources.Get "js/main.js" | resources.Fingerprint "sha256" }}
+<script src="{{ $js.RelPermalink }}" defer></script>

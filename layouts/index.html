@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="page-home">
+
+
+<div class="container page-home-inner">
+    <div class="home-left">
+      <h1 class="home-blog-name">{{ site.Params.blogName | default site.Title }}</h1>
+      <p class="home-intro">{{ site.Params.description }}</p>
+    </div>
+
+    <div class="home-right">
+      <a href="{{ "/posts/" | relLangURL }}" class="home-block-link">
+        <span class="home-block-link-title">文章</span>
+        <span class="home-block-link-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+      <a href="{{ "/about/" | relLangURL }}" class="home-block-link">
+        <span class="home-block-link-title">关于</span>
+        <span class="home-block-link-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+      {{ with site.Params.homeExtra -}}
+      <div class="home-text-block">{{ . | markdownify }}</div>
+      {{- end }}
+    </div>
+  </div>
+
+</div>
+{{ end }}

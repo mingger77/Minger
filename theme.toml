@@ -1,0 +1,18 @@
+name        = "Mingger"
+license     = "MIT"
+licenselink = "https://github.com/mingger77/mingger/blob/main/LICENSE"
+description = "A simple, clean personal blog theme — Anthropic-inspired, light orange accents."
+homepage    = "https://github.com/mingger77"
+tags        = ["blog", "minimalist", "responsive", "simple"]
+min_version = "0.146.0"
+
+[author]
+  name    = "mingger77"
+  homepage = "https://github.com/mingger77"
+
+features = [
+  "responsive",
+  "minimalist",
+  "custom-favicon",
+  "simple-layout",
+]

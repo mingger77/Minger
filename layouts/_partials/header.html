@@ -1,0 +1,9 @@
+<header class="site-header" id="site-header">
+  <nav class="nav container">
+    <ul class="nav-links">
+      <li><a href="{{ "/" | relLangURL }}" class="nav-link{{ if .IsHome }} nav-link--active{{ end }}">主页</a></li>
+      <li><a href="{{ "/posts/" | relLangURL }}" class="nav-link{{ if eq .Section "posts" }} nav-link--active{{ end }}">文章</a></li>
+      <li><a href="{{ "/about/" | relLangURL }}" class="nav-link{{ if eq .Section "about" }} nav-link--active{{ end }}">关于</a></li>
+    </ul>
+  </nav>
+</header>

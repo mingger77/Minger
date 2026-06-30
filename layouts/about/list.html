@@ -1,0 +1,33 @@
+{{ define "main" }}
+<div class="page-about">
+  <div class="about-bg-wrap">
+    <header class="about-header">
+      <h1 class="about-title">{{ .Title }}</h1>
+      {{ with .Description }}<p class="about-subtitle">{{ . }}</p>{{ end }}
+    </header>
+
+    {{ with .Params.info -}}
+    <div class="about-section">
+      <h2 class="about-section-title">个人信息</h2>
+      {{ if .name }}<p>姓名：{{ .name }}</p>{{ end }}
+      {{ if .bio }}<p>{{ .bio }}</p>{{ end }}
+    </div>
+    {{- end }}
+
+    {{ with .Params.contact -}}
+    <div class="about-section">
+      <h2 class="about-section-title">联系方式</h2>
+      {{ range . -}}
+      <span class="about-contact-item"><strong>{{ .label }}：</strong>{{ .value }}</span>
+      {{- end }}
+    </div>
+    {{- end }}
+
+    {{ with .Content -}}
+    <div class="about-body">
+      {{ . }}
+    </div>
+    {{- end }}
+  </div>
+</div>
+{{ end }}
