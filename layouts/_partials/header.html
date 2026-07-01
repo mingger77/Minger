@@ -1,9 +1,35 @@
 <header class="site-header" id="site-header">
   <nav class="nav container">
-    <ul class="nav-links">
-      <li><a href="{{ "/" | relLangURL }}" class="nav-link{{ if .IsHome }} nav-link--active{{ end }}">主页</a></li>
-      <li><a href="{{ "/posts/" | relLangURL }}" class="nav-link{{ if eq .Section "posts" }} nav-link--active{{ end }}">文章</a></li>
-      <li><a href="{{ "/about/" | relLangURL }}" class="nav-link{{ if eq .Section "about" }} nav-link--active{{ end }}">关于</a></li>
-    </ul>
+    <div class="nav-left">
+      <a href="{{ "/" | relLangURL }}" class="nav-blog-name">{{ site.Params.blogName | default site.Title }}</a>
+    </div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="{{ "/" | relLangURL }}" class="nav-link{{ if .IsHome }} nav-link--active{{ end }}">主页</a></li>
+        <li><a href="{{ "/posts/" | relLangURL }}" class="nav-link{{ if eq .Section "posts" }} nav-link--active{{ end }}">文章</a></li>
+        <li><a href="{{ "/about/" | relLangURL }}" class="nav-link{{ if eq .Section "about" }} nav-link--active{{ end }}">关于</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题">
+        <svg class="theme-toggle-icon" viewBox="0 0 300 260" fill="currentColor" aria-hidden="true">
+          <path d="M 230,80
+                   C 240,78 248,84 248,92
+                   C 255,88 262,92 260,98
+                   C 256,102 250,104 245,106
+                   C 240,112 232,118 220,124
+                   C 200,132 175,138 145,142
+                   C 115,146 85,148 60,150
+                   C 40,152 25,156 20,158
+                   C 22,150 30,142 42,134
+                   C 58,124 78,116 100,112
+                   C 120,107 138,102 150,95
+                   C 140,86 128,74 118,62
+                   C 112,54 110,48 116,44
+                   C 126,48 138,56 150,66
+                   C 162,74 172,80 182,84
+                   C 192,86 200,86 210,84
+                   C 218,82 225,80 230,80 Z"/>
+        </svg>
+      </button>
+    </div>
   </nav>
 </header>
