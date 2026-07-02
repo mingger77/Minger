@@ -1,6 +1,7 @@
 # Mingger
 
 > A simple, clean personal blog theme for [Hugo](https://gohugo.io/) — Anthropic-inspired, warm beige tones.
+> Built-in dark mode with one-click toggle.
 
 ![Hugo](https://img.shields.io/badge/Hugo-%5E0.146.0-ff4088?style=flat-square&logo=hugo)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
@@ -9,7 +10,8 @@
 
 ## Features
 
-- **Minimalist design** — clean layout, warm beige color palette
+- **Minimalist design** — clean layout, warm beige / dark gray-blue palette
+- **Dark mode** — dark by default, toggle via dove icon in header, persisted to localStorage
 - **Zero external dependencies** — no JS frameworks, no icon libraries, no CDN fonts
 - **Responsive** — mobile-first, single-column on screens under 768px
 - **RSS support** — auto-generated RSS feed for posts
@@ -81,8 +83,8 @@ themes/Mingger/
 ├── theme.toml             # Theme metadata
 ├── LICENSE                # MIT License
 ├── assets/
-│   ├── css/main.css       # All styles
-│   └── js/main.js         # Minimal JavaScript
+│   ├── css/main.css       # All styles (includes dark mode variables)
+│   └── js/main.js         # Theme toggle + smooth scroll
 ├── layouts/
 │   ├── baseof.html         # Base template
 │   ├── index.html          # Homepage
@@ -95,7 +97,7 @@ themes/Mingger/
 │   │   └── list.html       # Alternative about layout
 │   └── _partials/
 │       ├── head.html       # HTML head
-│       ├── header.html     # Navigation bar
+│       ├── header.html     # Navigation bar (blog name on left, links + toggle on right)
 │       ├── footer.html     # Footer
 │       └── dove.html       # SVG dove watermark
 ├── exampleSite/            # Example site for preview
@@ -197,8 +199,8 @@ Place your favicon in `static/` and configure in `hugo.toml`:
 
 ## Development
 
-- **CSS**: Edit `assets/css/main.css` — all styles in one file, using CSS custom properties
-- **JS**: Edit `assets/js/main.js` — minimal vanilla JavaScript
+- **CSS**: Edit `assets/css/main.css` — all styles in one file, CSS custom properties; `:root` for light mode, `[data-theme="dark"]` for dark mode
+- **JS**: Edit `assets/js/main.js` — theme toggle (localStorage) + anchor smooth scroll
 - **Templates**: Edit files in `layouts/` — Hugo Go HTML templates
 - Both CSS and JS are processed through [Hugo Pipes](https://gohugo.io/hugo-pipes/) with SHA-256 fingerprinting
 

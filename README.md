@@ -1,6 +1,7 @@
 # Mingger
 
 > 一款简单清爽的 [Hugo](https://gohugo.io/) 个人博客主题，灵感来自 Anthropic 风格，温暖米色系。
+> 支持暗色模式，一键切换。
 
 ![Hugo](https://img.shields.io/badge/Hugo-%5E0.146.0-ff4088?style=flat-square&logo=hugo)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
@@ -9,7 +10,8 @@
 
 ## 功能特性
 
-- **极简设计** — 干净布局，温暖米色配色
+- **极简设计** — 干净布局，温暖米色 / 深青灰暗色配色
+- **暗色模式** — 默认暗色，顶栏鸽子图标一键切换，持久化保存
 - **零外部依赖** — 无 JS 框架、无图标库、无 CDN 字体
 - **响应式适配** — 移动端优先，768px 以下自动单列
 - **RSS 支持** — 自动生成文章 RSS 订阅
@@ -81,8 +83,8 @@ themes/Mingger/
 ├── theme.toml             # 主题元数据
 ├── LICENSE                # MIT 许可证
 ├── assets/
-│   ├── css/main.css       # 全部样式
-│   └── js/main.js         # 极简 JavaScript
+│   ├── css/main.css       # 全部样式（含暗色模式变量）
+│   └── js/main.js         # 主题切换 + 滚动平滑
 ├── layouts/
 │   ├── baseof.html         # 基础模板
 │   ├── index.html          # 首页
@@ -95,7 +97,7 @@ themes/Mingger/
 │   │   └── list.html       # 备选关于页布局
 │   └── _partials/
 │       ├── head.html       # HTML head
-│       ├── header.html     # 导航栏
+│       ├── header.html     # 导航栏（左侧博客名 + 右侧链接 + 主题切换）
 │       ├── footer.html     # 页脚
 │       └── dove.html       # SVG 鸽子水印
 ├── exampleSite/            # 示例站点
@@ -197,8 +199,8 @@ contact:
 
 ## 开发指南
 
-- **CSS**：编辑 `assets/css/main.css` — 所有样式集中在一个文件，使用 CSS 自定义属性
-- **JS**：编辑 `assets/js/main.js` — 极简原生 JavaScript
+- **CSS**：编辑 `assets/css/main.css` — 所有样式集中在一个文件，使用 CSS 自定义属性，`:root` 为亮色，`[data-theme="dark"]` 为暗色
+- **JS**：编辑 `assets/js/main.js` — 主题切换（localStorage 持久化）+ 锚点平滑滚动
 - **模板**：编辑 `layouts/` 下的文件 — Hugo Go HTML 模板
 - CSS 和 JS 均通过 [Hugo Pipes](https://gohugo.io/hugo-pipes/) 处理，带 SHA-256 指纹缓存
 
